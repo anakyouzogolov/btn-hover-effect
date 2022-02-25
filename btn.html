@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button</title>
+</head>
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: Verdana, sans-serif;
+    }
+    
+    body {
+        background-color: #fa8231;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    .btn {
+        position: relative;
+        height: 60px;
+        width: 180px;
+        background: linear-gradient(0deg, rgb(71, 71, 71), rgb(27, 27, 27));
+        color: #fff;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 20px;
+        overflow: hidden;
+        text-transform: capitalize;
+        transition: all .2s ease-in-out;
+    }
+    
+    .btn-effect .border-top::before {
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 0px;
+        top: 0;
+        left: 0;
+        background-color: rgba(211, 211, 211, 0.335);
+        transition: all 14s cubic-bezier(0.215, 0.610, 0.355, 1);
+    }
+    
+    .btn-effect:hover .border-top::before {
+        width: 100%;
+        background-color: transparent;
+    }
+    
+    .btn-effect:hover {
+        font-size: 21px;
+        animation: anim 14s linear forwards;
+        box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.25), inset -10px -10px -20px 20px rgba(10, 10, 10, 0.45);
+        text-shadow: 6px 6px 20px rgba(226, 225, 225, 0.25);
+    }
+    
+    @keyframes anim {
+        0% {
+            outline: 0px;
+        }
+        20% {
+            outline: 10px solid rgba(255, 255, 255, 0.144);
+        }
+        60% {
+            outline: 20px solid rgba(255, 255, 255, 0.048);
+        }
+        100% {
+            outline: 30px solid transparent;
+        }
+    }
+</style>
+
+<body>
+
+    <button id="btn" class="btn btn-effect">
+        <span class="border-top"></span>
+        click me
+    </button>
+
+
+</body>
+
+</html>
